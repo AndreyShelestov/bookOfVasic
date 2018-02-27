@@ -1,19 +1,34 @@
 package com.example.joid.learning1.activities
 
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.support.v7.app.AppCompatActivity
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentStatePagerAdapter
+import android.support.v4.view.ViewPager
 import com.example.joid.learning1.R
+import com.example.joid.learning1.fragments.ItemsFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : BaseActivity() {
     override fun getActivityTitle(): Int = R.string.app_name
-
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        setContentView(R.layout.activity_main)
-    }
-
     override val tag = "Main Activity"
     override fun getLayout() = R.layout.activity_main
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        pager.adapter = ViewPagerAdapter(supportFragmentManager)
+    }
+
+    private class ViewPagerAdapter(manager: FragmentManager) : FragmentStatePagerAdapter(manager) {
+
+        override fun getCount(): Int {
+            return 5
+        }
+
+        override fun getItem(position: Int): Fragment {
+            return ItemsFragment()
+        }
+    }
 }
