@@ -6,9 +6,14 @@ import android.support.v7.app.AppCompatActivity
 import com.example.joid.learning1.R
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+    override fun getActivityTitle(): Int = R.string.app_name
+
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
         setContentView(R.layout.activity_main)
     }
+
+    override val tag = "Main Activity"
+    override fun getLayout() = R.layout.activity_main
 }
