@@ -22,7 +22,7 @@ abstract class BaseFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        Log.v(logTag, "[ ON PAUSE ]")
+        Log.v(logTag, "[ PAUSE: ]")
     }
 
     override fun onResume() {
