@@ -6,4 +6,9 @@
     <string name="pick_time">Pick time</string>
     <string name="lorem_ipsum_sit_dolore">lorem_ipsum_sit_dolore</string>
     <string name="menu_title_first_option">menu</string>
+    <string name="today">Today</string>
+    <string name="next_seven_days">Next seven days</string>
+    <string name="todos">ToDo</string>
+    <string name="notes">Notes</string>
+    <string name="choose_a_type">Choose a type</string>
 </resources>
