@@ -21,7 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/colorPrimary"
         android:layout_margin="@dimen/button_margin"
+        android:src="@drawable/ic_add_circle_black_24dp"
         android:id="@+id/new_item"
         />
 </RelativeLayout>
