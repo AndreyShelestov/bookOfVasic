@@ -1,14 +1,19 @@
 package com.example.joid.learning1.fragments
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
+import android.support.v4.view.ViewCompat.animate
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.BounceInterpolator
 import com.example.joid.learning1.R
 import com.example.joid.learning1.activities.NoteActivity
 import com.example.joid.learning1.activities.TodoActivity
@@ -30,6 +35,7 @@ class ItemsFragment : BaseFragment() {
         val view = inflater?.inflate(getLayout(), container, false)
         val btn = view?.findViewById<FloatingActionButton>(R.id.new_item)
         btn?.setOnClickListener {
+            btn.animate()
             val items = arrayOf(
                     getString(R.string.todos),
                     getString(R.string.notes)
@@ -37,6 +43,10 @@ class ItemsFragment : BaseFragment() {
             val builder =
                     AlertDialog.Builder(this@ItemsFragment.context)
                             .setTitle(R.string.choose_a_type)
+                            .setCancelable(true)
+                            .setOnCancelListener {
+                                animate(btn, false)
+                            }
                             .setItems(
                                     items,
                                     { _, which ->
@@ -78,6 +88,25 @@ class ItemsFragment : BaseFragment() {
                 timeFormat.format(date))
         intent.putExtras(data)
         startActivityForResult(intent, TODO_REQUEST)
+    }
+
+    private fun animate(btn: FloatingActionButton, expand: Boolean =
+    true) {
+        val animation1 = ObjectAnimator.ofFloat(btn, "scaleX",
+                if(expand){ 1.5f } else { 1.0f })
+        animation1.duration = 2000
+        animation1.interpolator = BounceInterpolator()
+        val animation2 = ObjectAnimator.ofFloat(btn, "scaleY",
+                if(expand){ 1.5f } else { 1.0f })
+        animation2.duration = 2000
+        animation2.interpolator = BounceInterpolator()
+        val animation3 = ObjectAnimator.ofFloat(btn, "alpha",
+                if(expand){ 0.3f } else { 1.0f })
+        animation3.duration = 500
+        animation3.interpolator = AccelerateInterpolator()
+        val set = AnimatorSet()
+        set.play(animation1).with(animation2).before(animation3)
+        set.start()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

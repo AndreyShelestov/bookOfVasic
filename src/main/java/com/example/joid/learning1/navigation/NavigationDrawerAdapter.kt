@@ -27,7 +27,7 @@ class NavigationDrawerAdapter(
 
         val item = items[p0]
         val title = view.findViewById<Button>(R.id.drawer_item)
-        val text = item.title
+        title.text = item.title
         title.setOnClickListener {
             item.onClick.run()
         }

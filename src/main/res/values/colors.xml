@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#ff6600</color>
-    <color name="colorPrimaryDark">#197734</color>
+    <color name="colorPrimaryDark">#ff6600</color>
     <color name="colorAccent">#ffae00</color>
     <color name="green">#11c403</color>
     <color name="green_dark">#0e8c05</color>
@@ -20,4 +20,6 @@
     <color name="vermilion_dark">#c64145</color>
     <color name="vermilion_transparent_40">#64f3494c</color>
     <color name="plum">#121e2a</color>
+    <color name="green2">#208c18</color>
+    <color name="green_dark2">#0b5505</color>
 </resources>

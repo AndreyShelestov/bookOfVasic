@@ -9,6 +9,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/drawer_item"
         android:text=""
+        android:textColor="@color/white"
+        style="@style/simple_button_grey"
         />
 
 </LinearLayout>
